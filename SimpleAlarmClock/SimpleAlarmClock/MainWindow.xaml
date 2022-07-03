@@ -5,8 +5,111 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleAlarmClock"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="SimpleAlarmClock" Height="650" Width="300"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        FontFamily="Segoe UI"
+        Foreground="White"
+        Background="#212224"
+        >
+    
+
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50">
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition Height="50">
+            </RowDefinition>
+        </Grid.RowDefinitions>
         
+        <Grid Grid.Row="0" 
+              Background="#141517">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto">
+                </ColumnDefinition>
+                <ColumnDefinition>
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="Images/alarm-clock.png"
+                   Margin="15,5,5,5"
+                   
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.Column="0"
+                   RenderOptions.BitmapScalingMode="HighQuality">
+                
+            </Image>
+            <TextBlock Text="SimpleAlarmClock"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="28"
+                       FontFamily="Fonts/#Dosis"
+                       FontWeight="Medium">
+
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40">
+                </RowDefinition>
+                <RowDefinition>
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="0 0 0 1" 
+                    BorderBrush="#141517"
+                    >
+                
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100">
+                        </ColumnDefinition>
+                        <ColumnDefinition>
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Alarms"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    >
+                    </TextBlock>
+
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1"
+                  Background="#3b3c3e">
+                
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3"
+              Background="#141517">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Made by Gabton"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left">
+            </TextBlock>
+            <Image Source="Images/settings.png"
+                   Margin="12,12,0,12"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   Grid.Column="2"
+                   RenderOptions.BitmapScalingMode="HighQuality">
+
+            </Image>
+        </Grid>
     </Grid>
 </Window>

@@ -1,0 +1,16 @@
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.AssemblyReference.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.SuggestedBindingRedirects.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\MainWindow.g.cs
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\App.g.cs
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock_MarkupCompile.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock_MarkupCompile.lref
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.exe.config
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.exe
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.pdb
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\MainWindow.baml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.g.resources
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.Properties.Resources.resources
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.GenerateResource.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.CoreCompileInputs.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.exe
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.pdb
