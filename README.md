@@ -8,5 +8,6 @@ No features for the moment
 
 ## Planned Features
 
--Custom Sounds for alarms /n
+-Custom Sounds for alarms 
+/n
 -Run on startup
