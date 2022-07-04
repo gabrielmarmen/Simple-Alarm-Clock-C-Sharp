@@ -14,3 +14,10 @@ C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\SimpleAlarmClock.csproj.CoreCompileInputs.cache
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\SimpleAlarmClock.exe
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\SimpleAlarmClock.pdb
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\AddAlarm.g.cs
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\AddAlarm.baml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Release\WpfExtendedControls.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Release\ru\WpfExtendedControls.resources.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\SimpleAlarmClock.csproj.CopyComplete
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Release\Hardcodet.NotifyIcon.Wpf.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Release\Hardcodet.NotifyIcon.Wpf.xml

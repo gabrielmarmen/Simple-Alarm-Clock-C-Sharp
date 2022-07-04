@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace SimpleAlarmClock
 {
     /// <summary>
@@ -29,6 +30,22 @@ namespace SimpleAlarmClock
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Window1();
+
+            window.Owner = this;
+            window.ShowDialog();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide(); this.Show();
+            TaskbarIcon.Visibility = Visibility.Visible;
+            TaskbarIcon.ShowBalloonTip("Hey!", "SimpleAlarmClock is still running and is here down in the System Tray", Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Info);
+            
         }
     }
 }

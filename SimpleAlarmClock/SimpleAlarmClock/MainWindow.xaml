@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:local="clr-namespace:SimpleAlarmClock"
         mc:Ignorable="d"
         Title="SimpleAlarmClock" Height="650" Width="300"
@@ -12,9 +13,11 @@
         Foreground="White"
         Background="#212224"
         >
-    
 
+
+    
     <Grid>
+        
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
@@ -28,7 +31,25 @@
             <RowDefinition Height="50">
             </RowDefinition>
         </Grid.RowDefinitions>
-        
+        <!--Initializing the TaskbarIcon-->
+        <Grid>
+            <tb:TaskbarIcon
+            Visibility="Hidden"
+            x:Name="TaskbarIcon"
+            IconSource="/Images/alarm-clock.ico"
+            ToolTipText="SimpleAlarmClock">
+
+                <tb:TaskbarIcon.ContextMenu>
+                    <ContextMenu
+                        Background="White">
+                        <MenuItem Header="Open" />
+                        <MenuItem Header="Quit" />
+                    </ContextMenu>
+                </tb:TaskbarIcon.ContextMenu>
+            </tb:TaskbarIcon>
+            
+
+        </Grid>
         <Grid x:Name="titleBar"
               Grid.Row="0" 
               Background="#141517" MouseDown="titleBar_MouseDown" 
@@ -90,7 +111,8 @@
                             Grid.Column="2"
                             BorderThickness="0"  
                             Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                            HorizontalAlignment="Right"
+                            HorizontalAlignment="Right" Click="addButton_Click" 
+                            
                     >
                         
                         <Image Source="Images/add.png"
@@ -98,11 +120,13 @@
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
                                Grid.Column="1"
-                               RenderOptions.BitmapScalingMode="HighQuality">
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               >
+                            
                         </Image>
                     </Button>
 
-
+                    
 
 
                 </Grid>
@@ -111,7 +135,7 @@
                   Background="#3b3c3e">
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
                     <StackPanel>
-                        <Grid Height="50">
+                        <Grid Height="auto">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10"/>
                                 <ColumnDefinition/>
@@ -134,17 +158,36 @@
                                            Grid.Row="0"
                                            VerticalAlignment="Top"
                                            HorizontalAlignment="Left"
-                                           FontSize="20"
+                                           FontSize="35"
                                            >
                                     
                                 </TextBlock>
-                                <TextBlock Text="Tommorow"
-                                           Grid.Row="1"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Left"
-                                           FontSize="10">
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Row="1">
+                                    
+                                    <TextBlock Text="Work"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               FontSize="10">
 
-                                </TextBlock>
+                                    </TextBlock>
+                                    <TextBlock Text=" | "
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               FontSize="10">
+
+                                    </TextBlock>
+                                    <TextBlock Text="Tommorow"
+                                               Foreground="#666666"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               FontSize="10">
+
+                                    </TextBlock>
+
+                                </StackPanel>
+                                
+                                
                             </Grid>
                             <CheckBox Grid.Row="1" 
                                       Grid.Column="2"
@@ -177,20 +220,37 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left">
             </TextBlock>
-            <Button x:Name="settingsButton"
-                    Grid.Column="2"
-                    BorderThickness="0"  
-                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                    HorizontalAlignment="Right"
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Grid.Column="2">
+                <Button x:Name="settingsButton"
+                        BorderThickness="0"  
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        HorizontalAlignment="Right"
                     >
-                <Image Source="Images/settings.png"
-                   Margin="12,12,12,12"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Grid.Column="2"
-                   RenderOptions.BitmapScalingMode="HighQuality">
-                </Image>
-            </Button>
+                    <Image Source="Images/settings.png"
+                        Margin="12,12,12,12"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="2"
+                        RenderOptions.BitmapScalingMode="HighQuality">
+                    </Image>
+                </Button>
+                <Button x:Name="CloseButton"
+                        BorderThickness="0"  
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        HorizontalAlignment="Right" Click="CloseButton_Click"
+                    >
+                    <Image Source="Images/close.png"
+                        Margin="12,12,12,12"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="2"
+                        RenderOptions.BitmapScalingMode="HighQuality">
+                    </Image>
+                </Button>
+            </StackPanel>
+            
         </Grid>
     </Grid>
 </Window>
