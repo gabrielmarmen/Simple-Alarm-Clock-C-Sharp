@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SimpleAlarmClock"
         mc:Ignorable="d"
         Title="SimpleAlarmClock" Height="650" Width="300"
-        WindowStyle="SingleBorderWindow"
+        WindowStyle="None"
         ResizeMode="NoResize"
         FontFamily="Segoe UI"
         Foreground="White"
@@ -29,8 +29,10 @@
             </RowDefinition>
         </Grid.RowDefinitions>
         
-        <Grid Grid.Row="0" 
-              Background="#141517">
+        <Grid x:Name="titleBar"
+              Grid.Row="0" 
+              Background="#141517" MouseDown="titleBar_MouseDown" 
+              >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto">
                 </ColumnDefinition>
@@ -69,47 +71,126 @@
                 
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100">
+                        <ColumnDefinition Width="10" >
+                        </ColumnDefinition>
+                        <ColumnDefinition >
                         </ColumnDefinition>
                         <ColumnDefinition>
                         </ColumnDefinition>
+                        <ColumnDefinition Width="10">
+                        </ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Alarms"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    FontSize="24"
+                    <TextBlock Grid.Column="1" 
+                               Text="Alarms"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               FontSize="24"/>
+                    
+                    <Button x:Name="addButton"
+                            Grid.Column="2"
+                            BorderThickness="0"  
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            HorizontalAlignment="Right"
                     >
-                    </TextBlock>
+                        
+                        <Image Source="Images/add.png"
+                               Margin="5,5,5,5"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Grid.Column="1"
+                               RenderOptions.BitmapScalingMode="HighQuality">
+                        </Image>
+                    </Button>
+
+
+
 
                 </Grid>
             </Border>
             <Grid Grid.Row="1"
                   Background="#3b3c3e">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <StackPanel>
+                        <Grid Height="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="11:11"
+                                           Grid.Row="0"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Left"
+                                           FontSize="20"
+                                           >
+                                    
+                                </TextBlock>
+                                <TextBlock Text="Tommorow"
+                                           Grid.Row="1"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontSize="10">
+
+                                </TextBlock>
+                            </Grid>
+                            <CheckBox Grid.Row="1" 
+                                      Grid.Column="2"
+                                      Margin="5,5,5,5"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Right"
+                                      >
+                                
+                            </CheckBox>
+                        </Grid>
+                        
+                        
+
+                    </StackPanel>
+                </ScrollViewer>
                 
             </Grid>
         </Grid>
         <Grid Grid.Row="3"
               Background="#141517">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="10"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Made by Gabton"
+            <TextBlock Text="Made by Gabriel M."
                            Grid.Column="1"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left">
             </TextBlock>
-            <Image Source="Images/settings.png"
-                   Margin="12,12,0,12"
+            <Button x:Name="settingsButton"
+                    Grid.Column="2"
+                    BorderThickness="0"  
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                    HorizontalAlignment="Right"
+                    >
+                <Image Source="Images/settings.png"
+                   Margin="12,12,12,12"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Right"
+                   HorizontalAlignment="Center"
                    Grid.Column="2"
                    RenderOptions.BitmapScalingMode="HighQuality">
-
-            </Image>
+                </Image>
+            </Button>
         </Grid>
     </Grid>
 </Window>
