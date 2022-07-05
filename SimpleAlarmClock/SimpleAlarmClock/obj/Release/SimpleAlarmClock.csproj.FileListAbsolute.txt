@@ -21,3 +21,5 @@ C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\SimpleAlarmClock.csproj.CopyComplete
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Release\Hardcodet.NotifyIcon.Wpf.dll
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Release\Hardcodet.NotifyIcon.Wpf.xml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\App.baml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Release\Dictionnaries\NotifyIconRessources.baml

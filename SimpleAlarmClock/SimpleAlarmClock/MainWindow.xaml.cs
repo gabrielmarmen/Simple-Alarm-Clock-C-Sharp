@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Hardcodet.Wpf.TaskbarNotification;
 
 
 namespace SimpleAlarmClock
@@ -21,9 +22,13 @@ namespace SimpleAlarmClock
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TaskbarIcon tb;
+
         public MainWindow()
         {
-            InitializeComponent();
+           InitializeComponent();
+           tb = (TaskbarIcon)FindResource("NotifyIcon");
+
         }
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -42,9 +47,9 @@ namespace SimpleAlarmClock
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide(); this.Show();
-            TaskbarIcon.Visibility = Visibility.Visible;
-            TaskbarIcon.ShowBalloonTip("Hey!", "SimpleAlarmClock is still running and is here down in the System Tray", Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Info);
+            this.Hide();
+            this.tb.Visibility = Visibility.Visible;
+            this.tb.ShowBalloonTip("Hey", "SimpleAlarmClock has been reduced to the System Tray. You can open it back up by double clicking on the icon.", BalloonIcon.Info);
             
         }
     }

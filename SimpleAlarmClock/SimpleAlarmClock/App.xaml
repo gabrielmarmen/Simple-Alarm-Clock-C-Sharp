@@ -3,7 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SimpleAlarmClock"
              StartupUri="MainWindow.xaml">
+    
     <Application.Resources>
-         
+        
+        <!--Creates a Ressource Dictionnary from the merged dictionnaries bellow-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionnaries/NotifyIconRessources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Application.Resources>
+    
 </Application>

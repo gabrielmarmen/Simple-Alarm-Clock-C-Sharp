@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:local="clr-namespace:SimpleAlarmClock"
         mc:Ignorable="d"
         Title="SimpleAlarmClock" Height="650" Width="300"
@@ -12,10 +11,11 @@
         FontFamily="Segoe UI"
         Foreground="White"
         Background="#212224"
+        x:Name="MainWindowInstance"
         >
 
 
-    
+   
     <Grid>
         
 
@@ -31,25 +31,7 @@
             <RowDefinition Height="50">
             </RowDefinition>
         </Grid.RowDefinitions>
-        <!--Initializing the TaskbarIcon-->
-        <Grid>
-            <tb:TaskbarIcon
-            Visibility="Hidden"
-            x:Name="TaskbarIcon"
-            IconSource="/Images/alarm-clock.ico"
-            ToolTipText="SimpleAlarmClock">
 
-                <tb:TaskbarIcon.ContextMenu>
-                    <ContextMenu
-                        Background="White">
-                        <MenuItem Header="Open" />
-                        <MenuItem Header="Quit" />
-                    </ContextMenu>
-                </tb:TaskbarIcon.ContextMenu>
-            </tb:TaskbarIcon>
-            
-
-        </Grid>
         <Grid x:Name="titleBar"
               Grid.Row="0" 
               Background="#141517" MouseDown="titleBar_MouseDown" 
