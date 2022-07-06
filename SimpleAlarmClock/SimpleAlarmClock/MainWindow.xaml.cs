@@ -23,11 +23,15 @@ namespace SimpleAlarmClock
     public partial class MainWindow : Window
     {
         private TaskbarIcon tb;
+        private bool NotificationFlag;
 
         public MainWindow()
         {
            InitializeComponent();
+
+           //Gets the TaskBarIcon from the ressources of the Application and puts its reference into tb
            tb = (TaskbarIcon)FindResource("NotifyIcon");
+           NotificationFlag = false;
 
         }
 
@@ -47,9 +51,17 @@ namespace SimpleAlarmClock
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            //Hides the Window and S
             this.Hide();
             this.tb.Visibility = Visibility.Visible;
-            this.tb.ShowBalloonTip("Hey", "SimpleAlarmClock has been reduced to the System Tray. You can open it back up by double clicking on the icon.", BalloonIcon.Info);
+
+            //Checks if Notification was already triggered once and if not, it triggers it.
+            if(NotificationFlag!=true)
+            {
+                this.tb.ShowBalloonTip("Hey", "SimpleAlarmClock has been reduced to the System Tray. You can open it back up by double clicking on the icon.", BalloonIcon.Info);
+                this.NotificationFlag = true;
+            }
+            
             
         }
     }
