@@ -29,9 +29,8 @@ namespace SimpleAlarmClock
         {
            InitializeComponent();
 
-           //Gets the TaskBarIcon from the ressources of the Application and puts its reference into tb
-           tb = (TaskbarIcon)FindResource("NotifyIcon");
-           NotificationFlag = false;
+           tb = (TaskbarIcon)FindResource("NotifyIcon");//Gets the TaskBarIcon from the ressources of the Application and puts its reference into tb
+           NotificationFlag = false; // Flag that indicates if the Taskbar notification has already been triggered. 
 
         }
 
