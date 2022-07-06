@@ -8,8 +8,9 @@ namespace SimpleAlarmClock
 {
     public class Sound
     {
-        public string Name;
-        public string SoundPath;
+        public string Name; //Name of the Sound
+        public string SoundPath; //Path of the Sound File
+        public string type; //What type of audio file is it
 
         /// <summary>
         /// Default Constructor
@@ -18,30 +19,18 @@ namespace SimpleAlarmClock
         {
             Name = "";
             SoundPath = "";
-        }
-        public Sound(string soundPath)
-        {
-            SoundPath = soundPath;
-            Name = GenerateName();
+            type = "";
         }
 
         /// <summary>
-        /// Overloaded Constructor with the Name and the Sound Path of a Sound.
+        /// Overloaded Constructor with the Sound Path of a Sound. Name will be generated automatically
         /// </summary>
-        /// <param name="name">Display name of the sound</param>
-        /// <param name="soundPath">Path where the sound is located</param>
-        public Sound(string name, string soundPath)
+        /// <param name="soundPath"></param>
+        public Sound(string soundPath, string FileNameAndExtension)
         {
-            Name = name;
             SoundPath = soundPath;
-        }
-
-        public string GenerateName()
-        {
-
-            ///////////////////////////PUT CODE HERE THAT GENERATES A NAME FROM A FILE NAME (GET TEXT JUST BEFORE LAST DOT)
-            string generatedName = "";
-            return  generatedName
+            Name = System.IO.Path.GetFileNameWithoutExtension(FileNameAndExtension);
+            type = System.IO.Path.GetExtension(FileNameAndExtension);
         }
 
 

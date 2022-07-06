@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:SimpleAlarmClock"
         mc:Ignorable="d"
         Title="" Height="350" Width="300"
-        WindowStyle="ToolWindow"
+        WindowStyle="None"
         ResizeMode="NoResize"
         FontFamily="Segoe UI"
         Foreground="White"
-        Background="#212224">
+        Background="#212224"
+        FontWeight="Light"
+        >
 
     <Grid Background="#3b3c3e">
         <Grid.RowDefinitions>
@@ -83,35 +85,54 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="15"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="15"/>
                     </Grid.RowDefinitions>
-                    
-                    <Image Source="Images/arrow-up.png"
+
+                    <RepeatButton x:Name="ButtonHourUp"
+                            BorderThickness="0" 
+                            Padding="2"
+                            Margin="2,0,2,0"
+                            Interval="100"
+                            Grid.Column="0"
+                            Grid.Row="0" Click="ButtonHourUp_Click"
+                    >
+                        <Image Source="Images/arrow-up.png"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           Grid.Column="0"
-                           Grid.Row="0"
                            RenderOptions.BitmapScalingMode="HighQuality"
-                           x:Name="ButtonHourUp">
-                    </Image>
-                    <Image Source="Images/arrow-up.png"
+                           >
+                        </Image>
+                    </RepeatButton>
+                    <RepeatButton x:Name="ButtonMinutesUp"
+                            BorderThickness="0" 
+                            Padding="2"
+                            Margin="2,0,2,0"
+                            Interval="50"
+                            Grid.Column="1"
+                            Grid.Row="0" Click="ButtonMinutesUp_Click"
+                    >
+                        <Image Source="Images/arrow-up.png"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           Grid.Column="1"
-                           Grid.Row="0"
                            RenderOptions.BitmapScalingMode="HighQuality"
-                           x:Name="ButtonMinutesUp">
-                    </Image>
-                    <Image Source="Images/arrow-up.png"
+                           >
+                        </Image>
+                    </RepeatButton>
+                    <Button x:Name="ButtonAMPMUp"
+                            BorderThickness="0" 
+                            Padding="2"
+                            Margin="2,0,2,0"
+                            Grid.Column="2"
+                            Grid.Row="0" Click="ButtonAMPMUp_Click"
+                    >
+                        <Image Source="Images/arrow-up.png"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           Grid.Column="2"
-                           Grid.Row="0"
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           x:Name="ButtonAMPMUp">
-                    </Image>
+                           RenderOptions.BitmapScalingMode="HighQuality">
+                        </Image>
+                    </Button>
                     <TextBlock Grid.Column="0"
                                Grid.Row="1"
                                Text="8"
@@ -141,29 +162,48 @@
                                HorizontalAlignment="Center"
                                FontSize="35"
                                x:Name="LabelAMPM"/>
-                    <Image Source="Images/arrow-down.png"
+                    <RepeatButton x:Name="ButtonHoursDown"
+                            BorderThickness="0" 
+                            Padding="2"
+                            Margin="2,0,2,0"
+                            Interval="100"
+                            Grid.Column="0"
+                            Grid.Row="3" Click="ButtonHoursDown_Click"
+                    >
+                        <Image Source="Images/arrow-down.png"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           Grid.Column="0"
-                           Grid.Row="2"
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           x:Name="ButtonHoursDown">
-                    </Image>
-                    <Image Source="Images/arrow-down.png"
+                           RenderOptions.BitmapScalingMode="HighQuality">
+                        </Image>
+                    </RepeatButton>
+                    <RepeatButton x:Name="ButtonMinutesDown"
+                            BorderThickness="0" 
+                            Padding="2"
+                            Margin="2,0,2,0"
+                            Interval="50"
+                            Grid.Column="1"
+                            Grid.Row="3" Click="ButtonMinutesDown_Click"
+                    >
+                        <Image Source="Images/arrow-down.png"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           Grid.Column="1"
-                           Grid.Row="2"
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           x:Name="ButtonMinutesDown">
-                    </Image>
-                    <Image Source="Images/arrow-down.png"
+                           RenderOptions.BitmapScalingMode="HighQuality">
+                        </Image>
+                    </RepeatButton>
+                    <Button x:Name="ButtonAMPMDown"
+                            BorderThickness="0" 
+                            Padding="2"
+                            Margin="2,0,2,0"
+                            Grid.Column="2"
+                            Grid.Row="3" Click="ButtonAMPMDown_Click"
+                    >
+                        <Image Source="Images/arrow-down.png"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Grid.Column="2"
                            Grid.Row="2"
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           x:Name="ButtonAMPMDown"/>
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                    </Button>
 
                 </Grid>
             </Grid>
@@ -181,7 +221,8 @@
                                FontSize="15"/>
                     <CheckBox Grid.Column="2"
                               HorizontalAlignment="Right"
-                              VerticalAlignment="Center"/>
+                              VerticalAlignment="Center"
+                              x:Name="CheckBoxRepeat"/>
                 </Grid>
                 <Grid Margin="0,2,0,2">
                     <Grid.ColumnDefinitions>
@@ -194,7 +235,9 @@
                                VerticalAlignment="Center"
                                Text="Sound"
                                FontSize="15"/>
-                    <ComboBox Grid.Column="2"/>
+                    <ComboBox Grid.Column="2"
+                              x:Name="ComboBoxSound"
+                              ItemsSource="{Binding AppSoundList}"/>
                 </Grid>
                 <Grid Margin="0,2,0,2">
                     <Grid.ColumnDefinitions>
@@ -226,7 +269,8 @@
                                FontSize="15"/>
                     <CheckBox Grid.Column="2"
                               HorizontalAlignment="Right"
-                              VerticalAlignment="Center"/>
+                              VerticalAlignment="Center"
+                              IsChecked="True"/>
                 </Grid>
             </StackPanel>
 

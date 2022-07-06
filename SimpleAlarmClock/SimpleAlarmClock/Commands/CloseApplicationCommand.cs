@@ -19,10 +19,10 @@ namespace SimpleAlarmClock.Commands
 
         public void Execute(object parameter)
         {
-            if (MessageBox.Show("Are you sure you want to quit SimpleAlarmClock ? \r\nYour alarms won't be ringning anymore",
+            if (MessageBox.Show("Are you sure you want to quit SimpleAlarmClock ? \r\nIf you quit, your alarms won't be ringning anymore.\r\n\r\nClick the hide icon to keep it running in the background.",
                     "Closing the Application",
                     MessageBoxButton.YesNo, 
-                    MessageBoxImage.Question,
+                    MessageBoxImage.Warning,
                     MessageBoxResult.None,
                     MessageBoxOptions.DefaultDesktopOnly) == MessageBoxResult.Yes)
             {

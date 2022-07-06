@@ -65,6 +65,7 @@
     <Compile Include="AddAlarm.xaml.cs">
       <DependentUpon>AddAlarm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IOManagement.cs" />
     <Compile Include="Sound.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +138,8 @@
   <ItemGroup>
     <Resource Include="Images\alarm-clock.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\hide.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

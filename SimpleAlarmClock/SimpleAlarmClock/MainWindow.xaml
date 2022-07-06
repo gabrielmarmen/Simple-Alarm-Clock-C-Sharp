@@ -192,7 +192,7 @@
               Background="#141517">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
@@ -218,6 +218,20 @@
                         RenderOptions.BitmapScalingMode="HighQuality">
                     </Image>
                 </Button>
+                <Button x:Name="HideButton"
+                        BorderThickness="0"  
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        HorizontalAlignment="Right" Click="HideButton_Click"
+                    >
+                    <Image Source="Images/hide.png"
+                        Margin="12,12,12,12"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="2"
+                        RenderOptions.BitmapScalingMode="HighQuality">
+                    </Image>
+                </Button>
+                
                 <Button x:Name="CloseButton"
                         BorderThickness="0"  
                         Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"

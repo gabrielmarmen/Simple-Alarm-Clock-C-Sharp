@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hardcodet.Wpf.TaskbarNotification;
+using SimpleAlarmClock.Commands;
 
 
 namespace SimpleAlarmClock
@@ -28,7 +29,7 @@ namespace SimpleAlarmClock
         public MainWindow()
         {
            InitializeComponent();
-
+           
            tb = (TaskbarIcon)FindResource("NotifyIcon");//Gets the TaskBarIcon from the ressources of the Application and puts its reference into tb
            NotificationFlag = false; // Flag that indicates if the Taskbar notification has already been triggered. 
 
@@ -47,21 +48,32 @@ namespace SimpleAlarmClock
             window.Owner = this;
             window.ShowDialog();
         }
-
+        /// <summary>
+        /// When the close button is clicked, we execute the CloseApplicationCommand. ICommand needs an object as a parameter but we pass it as null because
+        /// the method does not need any data from it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            //Hides the Window and S
+            
+            CloseApplicationCommand command = (CloseApplicationCommand)FindResource("CloseApplication");
+            command.Execute(null);
+            
+        }
+
+        private void HideButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Hides the Window and shows the TaskbarIcon
             this.Hide();
             this.tb.Visibility = Visibility.Visible;
 
             //Checks if Notification was already triggered once and if not, it triggers it.
-            if(NotificationFlag!=true)
+            if (NotificationFlag != true)
             {
                 this.tb.ShowBalloonTip("Hey", "SimpleAlarmClock has been reduced to the System Tray. You can open it back up by double clicking on the icon.", BalloonIcon.Info);
                 this.NotificationFlag = true;
             }
-            
-            
         }
     }
 }
