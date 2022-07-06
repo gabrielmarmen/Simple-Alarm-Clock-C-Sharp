@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\App.xaml
-3263603171
+3-1662457337
 
-7131954096
-16731893162
-MainWindow.xaml;AddAlarm.xaml;Dictionnaries\NotifyIconRessources.xaml;
+9388380171
+23631145816
+Views\MainWindowView.xaml;Views\AddAlarmView.xaml;Dictionnaries\NotifyIconRessources.xaml;
 
-False
+True
 

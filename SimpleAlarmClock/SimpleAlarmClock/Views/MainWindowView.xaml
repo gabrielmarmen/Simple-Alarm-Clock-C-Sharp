@@ -1,0 +1,234 @@
+﻿<Window x:Class="SimpleAlarmClock.Views.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleAlarmClock.Views"
+        mc:Ignorable="d"
+        Title="SimpleAlarmClock" Height="650" Width="300"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        FontFamily="Segoe UI"
+        Foreground="White"
+        Background="#212224">
+    
+    <Grid>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50">
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition Height="50">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="titleBar"
+              Grid.Row="0" 
+              Background="#141517" MouseDown="titleBar_MouseDown" 
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto">
+                </ColumnDefinition>
+                <ColumnDefinition>
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="../Images/alarm-clock.png"
+                   Margin="15,5,5,5"
+                   
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.Column="0"
+                   RenderOptions.BitmapScalingMode="HighQuality">
+
+            </Image>
+            <TextBlock Text="SimpleAlarmClock"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="28"
+                       FontFamily="../Fonts/#Dosis"
+                       FontWeight="Medium">
+
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40">
+                </RowDefinition>
+                <RowDefinition>
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="0 0 0 1" 
+                    BorderBrush="#141517"
+                    >
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" >
+                        </ColumnDefinition>
+                        <ColumnDefinition >
+                        </ColumnDefinition>
+                        <ColumnDefinition>
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="10">
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="1" 
+                               Text="Alarms"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               FontSize="24"/>
+
+                    <Button x:Name="addButton"
+                            Grid.Column="2"
+                            BorderThickness="0"  
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            HorizontalAlignment="Right" Click="addButton_Click" 
+                            
+                    >
+
+                        <Image Source="../Images/add.png"
+                               Margin="5,5,5,5"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Grid.Column="1"
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               >
+
+                        </Image>
+                    </Button>
+
+
+
+
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1"
+                  Background="#3b3c3e">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <StackPanel>
+                        <Grid Height="auto">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="11:11"
+                                           Grid.Row="0"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Left"
+                                           FontSize="35"
+                                           >
+
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Row="1">
+
+                                    <TextBlock Text="Work"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               FontSize="10">
+
+                                    </TextBlock>
+                                    <TextBlock Text=" | "
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               FontSize="10">
+
+                                    </TextBlock>
+                                    <TextBlock Text="Tommorow"
+                                               Foreground="#666666"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               FontSize="10">
+
+                                    </TextBlock>
+
+                                </StackPanel>
+
+
+                            </Grid>
+                            <CheckBox Grid.Row="1" 
+                                      Grid.Column="2"
+                                      Margin="5,5,5,5"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Right"
+                                      >
+
+                            </CheckBox>
+                        </Grid>
+
+
+
+                    </StackPanel>
+                </ScrollViewer>
+
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3"
+              Background="#141517">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Made by Gabriel M."
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left">
+            </TextBlock>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Grid.Column="2">
+                <Button x:Name="settingsButton"
+                        BorderThickness="0"  
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        HorizontalAlignment="Right"
+                    >
+                    <Image Source="../Images/settings.png"
+                        Margin="12,12,12,12"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="2"
+                        RenderOptions.BitmapScalingMode="HighQuality">
+                    </Image>
+                </Button>
+                <Button x:Name="CloseButton"
+                        BorderThickness="0"  
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        HorizontalAlignment="Right" Click="CloseButton_Click"
+                    >
+                    <Image Source="../Images/close.png"
+                        Margin="12,12,12,12"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="2"
+                        RenderOptions.BitmapScalingMode="HighQuality">
+                    </Image>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

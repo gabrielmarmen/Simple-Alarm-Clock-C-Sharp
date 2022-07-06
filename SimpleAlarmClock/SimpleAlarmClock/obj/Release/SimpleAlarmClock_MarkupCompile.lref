@@ -1,6 +1,7 @@
 ﻿
 FC:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\App.xaml;;
-FC:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\MainWindow.xaml;;
-FC:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\AddAlarm.xaml;;
+FC:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\Views\MainWindowView.xaml;;
+FC:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\Views\AddAlarmView.xaml;;
 FC:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\Dictionnaries\NotifyIconRessources.xaml;;
+FC:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\Views\MainWindowViewOld.xaml;;
 
