@@ -17,10 +17,10 @@
 
     <Border Margin="10" BorderThickness="0" BorderBrush="Transparent">
         <Border.Effect>
-            <DropShadowEffect Color="Black"
+            <DropShadowEffect Color="#212224"
                           Direction="270"
                           BlurRadius="10"
-                          ShadowDepth="3" />
+                          ShadowDepth="1" />
         </Border.Effect>
 
         <Grid Background="#3b3c3e">

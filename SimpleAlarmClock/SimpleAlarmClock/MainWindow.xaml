@@ -18,10 +18,10 @@
 
     <Border Margin="10" BorderThickness="1" BorderBrush="Transparent">
         <Border.Effect>
-            <DropShadowEffect Color="Black"
+            <DropShadowEffect Color="#212224"
                           Direction="270"
-                          BlurRadius="10"
-                          ShadowDepth="3" />
+                          BlurRadius="12"
+                          ShadowDepth="1" />
         </Border.Effect>
 
 

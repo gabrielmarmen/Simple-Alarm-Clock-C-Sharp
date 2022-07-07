@@ -38,12 +38,14 @@ namespace SimpleAlarmClock
 
                 foreach(string SoundFileNameAndExtension in SoundMp3Files)
                 {
-                    Sound tempSound = new Sound(soundsPath + "\\" + SoundFileNameAndExtension,SoundFileNameAndExtension);
+                    string completePath = Path.Combine(soundsPath, SoundFileNameAndExtension);
+                    Sound tempSound = new Sound(completePath,SoundFileNameAndExtension);
                     AppSoundList.Add(tempSound);
                 }
                 foreach (string SoundFileNameAndExtension in SoundWavFiles)
                 {
-                    Sound tempSound = new Sound(soundsPath+"\\"+SoundFileNameAndExtension, SoundFileNameAndExtension);
+                    string completePath = Path.Combine(soundsPath, SoundFileNameAndExtension);
+                    Sound tempSound = new Sound(completePath, SoundFileNameAndExtension);
                     AppSoundList.Add(tempSound);
                 }
                 return AppSoundList;
