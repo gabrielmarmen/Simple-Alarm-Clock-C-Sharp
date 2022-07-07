@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SimpleAlarmClock
 {
@@ -10,7 +11,8 @@ namespace SimpleAlarmClock
     {
         public string Name; //Name of the Sound
         public string SoundPath; //Path of the Sound File
-        public string type; //What type of audio file is it
+        public string Type; //What type of audio file is it
+        System.Media.SoundPlayer WavPlayer = new System.Media.SoundPlayer(); // SoundPlayer for playing the sounds
 
         /// <summary>
         /// Default Constructor
@@ -19,7 +21,7 @@ namespace SimpleAlarmClock
         {
             Name = "";
             SoundPath = "";
-            type = "";
+            Type = "";
         }
 
         /// <summary>
@@ -30,7 +32,23 @@ namespace SimpleAlarmClock
         {
             SoundPath = soundPath;
             Name = System.IO.Path.GetFileNameWithoutExtension(FileNameAndExtension);
-            type = System.IO.Path.GetExtension(FileNameAndExtension);
+            Type = System.IO.Path.GetExtension(FileNameAndExtension);
+        }
+
+        public void Play()
+        {
+            if(Type == ".mp3")
+            {
+            }
+            else if(Type == ".wav")
+            {
+                WavPlayer.SoundLocation = this.SoundPath;
+                WavPlayer.Play();
+            }
+            else
+            {
+                MessageBox.Show("The file format " + Type + "is not yet supported by this software.", "Unsupported Format", MessageBoxButton.OK, MessageBoxImage.Error); ;
+            }
         }
 
 

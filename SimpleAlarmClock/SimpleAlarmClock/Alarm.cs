@@ -16,6 +16,7 @@ namespace SimpleAlarmClock
         public int Hours; //Alarm hour of the day
         public int Minutes; //Alarm minutes of the hour property
         public bool PM; //Defines if the Alarm is in the afternoon
+        public bool Snooze; //Defines if the alarm is allowed to snooze
         public string Label; //Name of the Alarm
         public Sound AlarmSound; //Where is the alarm's sound
         public string WhenIndicator; //Is indicating to the user when is the alarm (Tommorow, Every weekday, Every Monday etc)
@@ -33,13 +34,15 @@ namespace SimpleAlarmClock
         }
 
 
-        public Alarm(bool? repeat, int hours, int minutes, bool pm, string label, Sound alarmSound)
+        public Alarm(bool? repeat, int hours, int minutes, bool pm, bool? snooze, string label, Sound alarmSound)
         {
-            bool newBool = repeat ?? false;
-            Repeat = newBool;
+            bool newBoolRepeat = repeat ?? false;
+            bool newBoolSnooze = snooze ?? false;
+            Repeat = newBoolRepeat;
             Hours = hours;
             Minutes = minutes;
             PM = pm;
+            Snooze = newBoolSnooze;
             Label = label;
             AlarmSound = alarmSound;
             WhenIndicator = SetAlarmWhenIndicator();

@@ -186,9 +186,22 @@ namespace SimpleAlarmClock
                 IsPM = true;
             }
 
-            Alarm newAlarm = new Alarm(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, TextBoxLabel.Text,((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
+
+            Alarm newAlarm = new Alarm(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text,((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
             newAlarm.AddAlarmToList(newAlarm);
             this.Close();
+        }
+
+        private void CancelAddAlarmButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Sound selectedSound = ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedItem.ToString());
+            selectedSound.Play();
         }
     }
 }

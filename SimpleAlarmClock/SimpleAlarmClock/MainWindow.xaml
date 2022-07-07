@@ -10,12 +10,22 @@
         ResizeMode="NoResize"
         FontFamily="Segoe UI"
         Foreground="White"
-        Background="#212224"
-        x:Name="MainWindowInstance"
+        Background="Transparent"
+        AllowsTransparency="True"
+        
+        x:Name="MainWindowInstance" WindowStartupLocation="CenterScreen"
         >
 
+    <Border Margin="10" BorderThickness="1" BorderBrush="Transparent">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                          Direction="270"
+                          BlurRadius="10"
+                          ShadowDepth="3" />
+        </Border.Effect>
 
-   
+
+
     <Grid>
         
 
@@ -72,7 +82,8 @@
                     BorderBrush="#141517"
                     >
                 
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0"
+                      Background="#212224">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10" >
                         </ColumnDefinition>
@@ -249,4 +260,5 @@
             
         </Grid>
     </Grid>
+    </Border>
 </Window>
