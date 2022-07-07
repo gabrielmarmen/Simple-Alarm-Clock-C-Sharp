@@ -24,3 +24,5 @@ C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.CopyComplete
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.exe
 C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.pdb
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Newtonsoft.Json.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Newtonsoft.Json.xml

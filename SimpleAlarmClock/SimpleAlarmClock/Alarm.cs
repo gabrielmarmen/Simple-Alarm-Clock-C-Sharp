@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SimpleAlarmClock
 {
@@ -32,9 +33,10 @@ namespace SimpleAlarmClock
         }
 
 
-        public Alarm(bool repeat, int hours, int minutes, bool pm, string label, Sound alarmSound)
+        public Alarm(bool? repeat, int hours, int minutes, bool pm, string label, Sound alarmSound)
         {
-            Repeat = repeat;
+            bool newBool = repeat ?? false;
+            Repeat = newBool;
             Hours = hours;
             Minutes = minutes;
             PM = pm;
@@ -53,6 +55,15 @@ namespace SimpleAlarmClock
             {
                 return "Tommorow";
             }
+            
+        }
+        public void AddAlarmToList(Alarm newAlarm)
+        {
+            //Adds the alarm to the current list of alarms loaded in the app
+            ((App)Application.Current).AppAlarmList.Add(newAlarm);
+            //Calls the Method SaveAlarmsToDisk from IOManagement instance from the current app.
+            //This Saves the newly updated list to the disk
+            ((App)Application.Current).IOManager.SaveAlarmsToDisk();
             
         }
     }

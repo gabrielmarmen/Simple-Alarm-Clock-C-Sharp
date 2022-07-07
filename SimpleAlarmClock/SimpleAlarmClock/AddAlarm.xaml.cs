@@ -176,5 +176,19 @@ namespace SimpleAlarmClock
                 LabelAMPM.Text = "AM";
             }
         }
+
+        private void AddAlarmButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            bool IsPM = false;
+            if(LabelAMPM.Text == "PM")
+            {
+                IsPM = true;
+            }
+
+            Alarm newAlarm = new Alarm(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, TextBoxLabel.Text,((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
+            newAlarm.AddAlarmToList(newAlarm);
+            this.Close();
+        }
     }
 }
