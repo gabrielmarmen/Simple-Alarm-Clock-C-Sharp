@@ -89,22 +89,7 @@ namespace SimpleAlarmClock
 
         private void AddASoundMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog OpenFileDialogInstance = new OpenFileDialog();
-
-            OpenFileDialogInstance.InitialDirectory = "c:\\";
-            OpenFileDialogInstance.Filter = "Audio Files (*.mp3, *.wav)|*.mp3;*.wav";
-            OpenFileDialogInstance.FilterIndex = 0;
-            OpenFileDialogInstance.RestoreDirectory = true;
-            OpenFileDialogInstance.ShowDialog();
-            
-
-            string SelectedFilePath = OpenFileDialogInstance.FileName;
-            string SelectedFileName = OpenFileDialogInstance.SafeFileName;
-
-            File.Copy(SelectedFilePath, ((App)Application.Current).AppSoundsPath + "\\" + SelectedFileName);
-
-            ((App)Application.Current).AppSoundList = ((App)Application.Current).IOManager.LoadSoundsFromDisk(((App)Application.Current).AppSoundsPath, ((App)Application.Current).SoundRepertoryExists);
-
+            ((App)Application.Current).IOManager.AddNewSound();
         }
     }
 }
