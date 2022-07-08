@@ -12,7 +12,7 @@ namespace SimpleAlarmClock
     public class IOManagement
     {
 
-
+        
 
         public IOManagement()
         {

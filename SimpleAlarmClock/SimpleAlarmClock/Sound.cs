@@ -31,7 +31,7 @@ namespace SimpleAlarmClock
         public Sound(string soundPath, string FileNameAndExtension)
         {
             SoundPath = soundPath;
-            Name = System.IO.Path.GetFileNameWithoutExtension(FileNameAndExtension);
+            Name = System.IO.Path.GetFileName(FileNameAndExtension);
             Type = System.IO.Path.GetExtension(FileNameAndExtension);
         }
 

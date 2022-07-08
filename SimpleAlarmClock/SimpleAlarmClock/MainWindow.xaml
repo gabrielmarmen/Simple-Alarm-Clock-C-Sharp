@@ -107,6 +107,14 @@
                             HorizontalAlignment="Right" Click="addButton_Click" 
                             
                     >
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem x:Name="AddAnAlarmMenuItem"
+                                              Header="Add an Alarm" Click="AddAnAlarmMenuItem_Click" />
+                                    <MenuItem x:Name="AddASoundMenuItem"
+                                              Header="Add a Sound" Click="AddASoundMenuItem_Click" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
                         
                         <Image Source="Images/add.png"
                                Margin="5,5,5,5"
