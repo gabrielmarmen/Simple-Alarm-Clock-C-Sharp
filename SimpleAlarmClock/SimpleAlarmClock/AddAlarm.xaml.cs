@@ -198,9 +198,13 @@ namespace SimpleAlarmClock
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             Sound selectedSound = ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedItem.ToString());
-            selectedSound.Play();
+            if (selectedSound != null)
+            {
+                selectedSound.Play();
+            }
+            
         }
     }
 }

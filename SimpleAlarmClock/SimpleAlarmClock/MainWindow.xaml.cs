@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hardcodet.Wpf.TaskbarNotification;
+using Microsoft.Win32;
 using SimpleAlarmClock.Commands;
 
 
@@ -43,6 +45,7 @@ namespace SimpleAlarmClock
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+
             var window = new Window1();
 
             window.Owner = this;
@@ -74,6 +77,19 @@ namespace SimpleAlarmClock
                 this.tb.ShowBalloonTip("Hey", "SimpleAlarmClock has been reduced to the System Tray. You can open it back up by double clicking on the icon.", BalloonIcon.Info);
                 this.NotificationFlag = true;
             }
+        }
+
+        private void AddAnAlarmMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Window1();
+
+            window.Owner = this;
+            window.ShowDialog();
+        }
+
+        private void AddASoundMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ((App)Application.Current).IOManager.AddNewSound();
         }
     }
 }
