@@ -1,0 +1,56 @@
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.AssemblyReference.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.SuggestedBindingRedirects.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\MainWindow.g.cs
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\AddAlarm.g.cs
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\App.g.cs
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock_MarkupCompile.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock_MarkupCompile.lref
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.exe.config
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.exe
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.pdb
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Hardcodet.NotifyIcon.Wpf.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\WpfExtendedControls.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Hardcodet.NotifyIcon.Wpf.xml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\ru\WpfExtendedControls.resources.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\App.baml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\MainWindow.baml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\AddAlarm.baml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\Dictionnaries\NotifyIconRessources.baml
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.g.resources
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.Properties.Resources.resources
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.GenerateResource.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.CoreCompileInputs.cache
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.CopyComplete
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.exe
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.pdb
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Newtonsoft.Json.dll
+C:\DEV\GIT PROJECTS\Simple Alarm Clock C#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Newtonsoft.Json.xml
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.exe.config
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.exe
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\SimpleAlarmClock.pdb
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Hardcodet.NotifyIcon.Wpf.dll
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Newtonsoft.Json.dll
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\WpfExtendedControls.dll
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Hardcodet.NotifyIcon.Wpf.xml
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\Newtonsoft.Json.xml
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\bin\Debug\ru\WpfExtendedControls.resources.dll
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.AssemblyReference.cache
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.SuggestedBindingRedirects.cache
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\MainWindow.g.cs
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\AddAlarm.g.cs
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\App.g.cs
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock_MarkupCompile.cache
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock_MarkupCompile.lref
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\App.baml
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\MainWindow.baml
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\AddAlarm.baml
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\Dictionnaries\NotifyIconRessources.baml
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.g.resources
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.Properties.Resources.resources
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.GenerateResource.cache
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.CoreCompileInputs.cache
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.csproj.CopyComplete
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.exe
+C:\DEV\SimpleAlarmClockC#\SimpleAlarmClock\SimpleAlarmClock\obj\Debug\SimpleAlarmClock.pdb
