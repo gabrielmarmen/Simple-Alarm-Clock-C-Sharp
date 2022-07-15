@@ -25,25 +25,6 @@ namespace SimpleAlarmClock.Components
 
 
 
-
-
-
-        public string test
-        {
-            get { return (string)GetValue(testProperty); }
-            set { SetValue(testProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for test.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty testProperty =
-            DependencyProperty.Register("test", typeof(string), typeof(AlarmControl), new PropertyMetadata(""));
-
-
-
-
-
-
-
         public Alarm AlarmObject
         {
             get { return (Alarm)GetValue(AlarmObjectProperty); }
@@ -60,7 +41,6 @@ namespace SimpleAlarmClock.Components
             
             AlarmObject = new Alarm();
             AlarmObject.HoursAndMinutes = "Sheesh";
-            test = "Sheesh";
             InitializeComponent();
             
         }
@@ -71,5 +51,14 @@ namespace SimpleAlarmClock.Components
             InitializeComponent();
 
         }
+
+        private void ButtonEditAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ModifyAlarm(AlarmObject);
+            window.Owner = ((App)Application.Current).MainWindow;
+            window.ShowDialog();
+            
+        }
+
     }
 }

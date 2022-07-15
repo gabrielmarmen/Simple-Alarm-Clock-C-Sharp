@@ -72,6 +72,9 @@
       <DependentUpon>AlarmControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="IOManagement.cs" />
+    <Compile Include="ModifyAlarm.xaml.cs">
+      <DependentUpon>ModifyAlarm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sound.cs" />
     <Page Include="Components\AlarmControl.xaml">
       <SubType>Designer</SubType>
@@ -97,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dictionnaries\NotifyIconRessources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifyAlarm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

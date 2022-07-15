@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:SimpleAlarmClock.Components"
              mc:Ignorable="d"
              x:Name="AlarmInfoGrid">
+
+
     <Grid Height="auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -29,8 +31,7 @@
                        Grid.Row="0"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       FontSize="35"
-                                           >
+                       FontSize="35">
             </TextBlock>
             <StackPanel Orientation="Horizontal"
                                             Grid.Row="1">
@@ -59,7 +60,11 @@
 
 
         </Grid>
-        <CheckBox Grid.Row="1" 
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1" 
+                    Grid.Column="2"
+                    HorizontalAlignment="Right">
+            <CheckBox Grid.Row="1" 
                   Grid.Column="2"
                   Margin="5,5,5,5"
                   VerticalAlignment="Center"
@@ -67,6 +72,25 @@
                   IsChecked="{Binding AlarmObject.Enabled, ElementName=AlarmInfoGrid}"
                                       >
 
-        </CheckBox>
+            </CheckBox>
+            <Button x:Name="ButtonEditAlarm"
+                    BorderThickness="0"  
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Height="20" Click="ButtonEditAlarm_Click"
+                    
+                    >
+                <Image Source="../Images/edit.png"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="2"
+                        Margin="1,0,0,1"
+                        RenderOptions.BitmapScalingMode="HighQuality">
+                </Image>
+            </Button>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>
