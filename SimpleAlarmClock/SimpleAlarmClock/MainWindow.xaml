@@ -134,10 +134,11 @@
                 </Grid>
             </Border>
             <Grid Grid.Row="1"
-                  Background="#3b3c3e">
-                <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                        <StackPanel>
-                            <components:AlarmControl/>
+                  Background="#3b3c3e"
+                  >
+                <ScrollViewer x:Name="ScrollViewerAlarms" 
+                              VerticalScrollBarVisibility="Hidden">
+                        <StackPanel x:Name="StackPanelAlarms">
                         </StackPanel>
                 </ScrollViewer>
                 

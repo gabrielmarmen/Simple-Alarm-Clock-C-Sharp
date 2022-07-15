@@ -59,9 +59,17 @@ namespace SimpleAlarmClock.Components
         {
             
             AlarmObject = new Alarm();
+            AlarmObject.HoursAndMinutes = "Sheesh";
             test = "Sheesh";
             InitializeComponent();
             
+        }
+        public AlarmControl(Alarm alarm)
+        {
+
+            AlarmObject = alarm;
+            InitializeComponent();
+
         }
     }
 }

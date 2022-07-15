@@ -39,6 +39,7 @@ namespace SimpleAlarmClock
 
             AppSoundList = IOManager.LoadSoundsFromDisk(AppSoundsPath,SoundRepertoryExists);
             AppAlarmList = IOManager.LoadAlarmsFromDisk(AppAlarmsPath, AlarmFileExists);
+
             
             
         }

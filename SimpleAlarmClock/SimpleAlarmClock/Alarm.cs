@@ -8,19 +8,22 @@ using System.Windows;
 namespace SimpleAlarmClock
 {
     /// <summary>
-    /// This is the Alarm Class. Contains a single alarm object values and it's methods.
+    /// This is the Alarm Class. Contains a single alarm object's properties and it's methods.
     /// </summary>
     public class Alarm
     {
-        public bool Repeat; //Is the alarm repeating
-        public int Hours; //Alarm hour of the day
-        public int Minutes; //Alarm minutes of the hour property
-        public string HoursAndMinutes;
-        public bool PM; //Defines if the Alarm is in the afternoon
-        public bool Snooze; //Defines if the alarm is allowed to snooze
-        public string Label; //Name of the Alarm
-        public Sound AlarmSound; //Where is the alarm's sound
-        public string WhenIndicator; //Is indicating to the user when is the alarm (Tommorow, Every weekday, Every Monday etc)
+
+        public bool Repeat { get; set; } //Is the alarm repeating
+        public int Hours { get; set; } //Alarm hour of the day
+        public int Minutes { get; set; } //Alarm minutes of the hour property
+        public string HoursAndMinutes { get; set; } //UI uses this property to show the time of the alarm
+        public bool PM { get; set; } //Defines if the Alarm is in the afternoon
+        public bool Snooze { get; set; } //Defines if the alarm is allowed to snooze
+        public string Label { get; set; } //Name of the Alarm
+        public Sound AlarmSound { get; set; } //Where is the alarm's sound
+        public string WhenIndicator { get; set; } //Is indicating to the user when is the alarm (Tommorow, Every weekday, Every Monday etc)
+        public bool Enabled { get; set; } //Indicates if the Alarm is Enabled or not.
+        public DateTime CreationDateTime { get; set; } //Mainly used as unique identificator
 
 
         public Alarm()
@@ -33,6 +36,8 @@ namespace SimpleAlarmClock
             Label = "Alarm";
             AlarmSound = new Sound();
             WhenIndicator = SetAlarmWhenIndicator();
+            Enabled = true;
+            CreationDateTime = DateTime.Now;
         }
 
 
@@ -43,12 +48,15 @@ namespace SimpleAlarmClock
             Repeat = newBoolRepeat;
             Hours = hours;
             Minutes = minutes;
-            HoursAndMinutes = GetHoursAndMinutes();
             PM = pm;
+            HoursAndMinutes = GetHoursAndMinutes();
             Snooze = newBoolSnooze;
             Label = label;
             AlarmSound = alarmSound;
             WhenIndicator = SetAlarmWhenIndicator();
+            Enabled = true;
+            CreationDateTime = DateTime.Now;
+
         }
 
         public string SetAlarmWhenIndicator()
@@ -76,11 +84,27 @@ namespace SimpleAlarmClock
         {
             if(this.Minutes<10)
             {
-                return this.Hours.ToString() + ":0" + this.Minutes.ToString();
+                if(PM == true)
+                {
+                    return this.Hours.ToString() + ":0" + this.Minutes.ToString() + " PM";
+                }
+                else
+                {
+                    return this.Hours.ToString() + ":0" + this.Minutes.ToString() + " AM";
+                }
+                
             }
             else
             {
-                return this.Hours.ToString() + ":" + this.Minutes.ToString();
+                if (PM == true)
+                {
+                    return this.Hours.ToString() + ":" + this.Minutes.ToString() + " PM";
+                }
+                else
+                {
+                    return this.Hours.ToString() + ":" + this.Minutes.ToString() + " AM";
+                }
+                
             }
 
 

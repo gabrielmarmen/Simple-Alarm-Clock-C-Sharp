@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.Win32;
 using SimpleAlarmClock.Commands;
-
+using SimpleAlarmClock.Components;
 
 namespace SimpleAlarmClock
 {
@@ -34,7 +34,20 @@ namespace SimpleAlarmClock
            
            tb = (TaskbarIcon)FindResource("NotifyIcon");//Gets the TaskBarIcon from the ressources of the Application and puts its reference into tb
            NotificationFlag = false; // Flag that indicates if the Taskbar notification has already been triggered. 
+           UpdateStackPanelAlarms(); // Adds the alarms to the stackpanel of the main window
 
+        }
+
+        public void UpdateStackPanelAlarms()
+        {
+            StackPanelAlarms.Children.Clear();
+            if (((App)Application.Current).AppAlarmList.Count != 0)
+            {
+                foreach (Alarm alarm in ((App)Application.Current).AppAlarmList)
+                {
+                    StackPanelAlarms.Children.Add(new AlarmControl(alarm));
+                }
+            }
         }
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -85,6 +98,8 @@ namespace SimpleAlarmClock
 
             window.Owner = this;
             window.ShowDialog();
+            UpdateStackPanelAlarms();
+
         }
 
         private void AddASoundMenuItem_Click(object sender, RoutedEventArgs e)
