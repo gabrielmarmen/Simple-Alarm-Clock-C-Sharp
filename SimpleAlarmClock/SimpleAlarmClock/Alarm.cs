@@ -15,6 +15,7 @@ namespace SimpleAlarmClock
         public bool Repeat; //Is the alarm repeating
         public int Hours; //Alarm hour of the day
         public int Minutes; //Alarm minutes of the hour property
+        public string HoursAndMinutes;
         public bool PM; //Defines if the Alarm is in the afternoon
         public bool Snooze; //Defines if the alarm is allowed to snooze
         public string Label; //Name of the Alarm
@@ -27,6 +28,7 @@ namespace SimpleAlarmClock
             Repeat = false;
             Hours = 8;
             Minutes = 0;
+            HoursAndMinutes = GetHoursAndMinutes();
             PM = false;
             Label = "Alarm";
             AlarmSound = new Sound();
@@ -41,6 +43,7 @@ namespace SimpleAlarmClock
             Repeat = newBoolRepeat;
             Hours = hours;
             Minutes = minutes;
+            HoursAndMinutes = GetHoursAndMinutes();
             PM = pm;
             Snooze = newBoolSnooze;
             Label = label;
@@ -68,6 +71,19 @@ namespace SimpleAlarmClock
             //This Saves the newly updated list to the disk
             ((App)Application.Current).IOManager.SaveAlarmsToDisk();
             
+        }
+        public string GetHoursAndMinutes()
+        {
+            if(this.Minutes<10)
+            {
+                return this.Hours.ToString() + ":0" + this.Minutes.ToString();
+            }
+            else
+            {
+                return this.Hours.ToString() + ":" + this.Minutes.ToString();
+            }
+
+
         }
     }
 }

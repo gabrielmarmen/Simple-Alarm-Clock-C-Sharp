@@ -68,8 +68,15 @@
     <Compile Include="AddAlarm.xaml.cs">
       <DependentUpon>AddAlarm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\AlarmControl.xaml.cs">
+      <DependentUpon>AlarmControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IOManagement.cs" />
     <Compile Include="Sound.cs" />
+    <Page Include="Components\AlarmControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
