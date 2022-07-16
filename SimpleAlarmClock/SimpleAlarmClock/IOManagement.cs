@@ -77,7 +77,7 @@ namespace SimpleAlarmClock
 
                 if(File.Exists(SelectedFilePath))
                 {
-                     MessageBox.Show("The sound you selected already exists. Please choose another one.",
+                     MessageBox.Show("The sound you selected already exists. Please choose another one or rename the sound you selected.",
                      "Sound already exists",
                      MessageBoxButton.OK,
                      MessageBoxImage.Information,
