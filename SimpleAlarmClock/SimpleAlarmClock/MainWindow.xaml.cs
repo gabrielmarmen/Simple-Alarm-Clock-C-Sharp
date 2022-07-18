@@ -55,14 +55,17 @@ namespace SimpleAlarmClock
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
+        /// <summary>
+        /// Shows context menu on left click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
 
-            var window = new Window1();
-
-            window.Owner = this;
-            window.ShowDialog();
+            addButton.ContextMenu.PlacementTarget = addButton;
+            addButton.ContextMenu.IsOpen = true;
+            e.Handled = true;
         }
         /// <summary>
         /// When the close button is clicked, we execute the CloseApplicationCommand. ICommand needs an object as a parameter but we pass it as null because

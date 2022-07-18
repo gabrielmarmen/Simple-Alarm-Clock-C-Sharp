@@ -109,5 +109,18 @@ namespace SimpleAlarmClock
 
 
         }
+
+        public void ModifyObject(bool? repeat, int hours, int minutes, bool pm, bool? snooze, string label, Sound alarmSound)
+        {
+            this.Repeat = repeat ?? false;
+            this.Snooze = snooze ?? false;
+            this.Hours = hours;
+            this.Minutes = minutes;
+            this.PM = pm;
+            this.HoursAndMinutes = GetHoursAndMinutes();
+            this.Label = label;
+            this.AlarmSound = alarmSound;
+            this.WhenIndicator = SetAlarmWhenIndicator();
+        }
     }
 }

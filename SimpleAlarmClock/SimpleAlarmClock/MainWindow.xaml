@@ -165,13 +165,15 @@
                         BorderThickness="0"  
                         Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
                         HorizontalAlignment="Right"
+                        Visibility="Hidden"
                     >
                     <Image Source="Images/settings.png"
                         Margin="12,12,12,12"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Grid.Column="2"
-                        RenderOptions.BitmapScalingMode="HighQuality">
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        >
                     </Image>
                 </Button>
                 <Button x:Name="HideButton"

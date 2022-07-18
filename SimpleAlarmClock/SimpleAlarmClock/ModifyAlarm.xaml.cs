@@ -21,6 +21,7 @@ namespace SimpleAlarmClock
     public partial class ModifyAlarm : Window
     {
         public Alarm AlarmObject { get; set; } 
+        public Alarm ModifiedObject { get; set; }   
         public string FixedMinutes { get; set; }
         public string AMPM { get; set; }
 
@@ -252,7 +253,6 @@ namespace SimpleAlarmClock
             ((App)Application.Current).AppAlarmList.Remove(this.AlarmObject);
             ((App)Application.Current).IOManager.SaveAlarmsToDisk();
             ((MainWindow)this.Owner).UpdateStackPanelAlarms();
-            Thread.Sleep(50);
             this.Close();
         }
 
@@ -273,9 +273,16 @@ namespace SimpleAlarmClock
 
             if (TextBoxLabel.Text != "")
             {
-                Alarm modifiedAlarm = new Alarm(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
-                AlarmObject = modifiedAlarm;
+                foreach (Alarm obj in ((App)Application.Current).AppAlarmList)
+                {
+                    if (obj.CreationDateTime == AlarmObject.CreationDateTime)
+                    {
+                        obj.ModifyObject(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
+                        
+                    }
+                }
                 (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();
+                ((App)Application.Current).IOManager.SaveAlarmsToDisk();
                 this.Close();
             }
             else
