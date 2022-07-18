@@ -208,30 +208,6 @@ namespace SimpleAlarmClock
             }
         }
 
-        private void AddAlarmButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            bool IsPM = false;
-            if (LabelAMPM.Text == "PM")
-            {
-                IsPM = true;
-            }
-
-
-
-            if (TextBoxLabel.Text != "")
-            {
-                Alarm newAlarm = new Alarm(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
-                newAlarm.AddAlarmToList(newAlarm);
-                (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Please enter a Value in the Label field.", "Missing Label", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-
-        }
 
         private void CancelAddAlarmButton_Click(object sender, RoutedEventArgs e)
         {

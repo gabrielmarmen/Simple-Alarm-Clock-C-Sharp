@@ -328,24 +328,25 @@
                     <Button Content="Update"
                         Grid.Column="0"
                         Height="30"
-                        Margin="5"
+                        Margin="5,0"
                         FontWeight="DemiBold"
                         x:Name="UpdateAlarmButton" Click="UpdateAlarmButton_Click" />
 
                     <Button Content="Delete"
                         Grid.Column="1"
                         Height="30"
-                        Margin="5"
+                        Margin="5,0"
                         FontWeight="DemiBold"
                         x:Name="DeleteAlarmButton"
-                        Background="#f44336" Click="DeleteAlarmButton_Click"/>
+                        Background="#f44336" Click="DeleteAlarmButton_Click"
+                        BorderBrush="#a72d25"/>
                     
                     <Button Content="Cancel"
                         Grid.ColumnSpan="2"
                         Grid.Column="0"
                         Grid.Row="1"
                         Height="30"
-                        Margin="5"
+                        Margin="5,0"
                         FontWeight="DemiBold"
                         x:Name="CancelUpdateButton" Click="CancelUpdateButton_Click"/>
                 </Grid>

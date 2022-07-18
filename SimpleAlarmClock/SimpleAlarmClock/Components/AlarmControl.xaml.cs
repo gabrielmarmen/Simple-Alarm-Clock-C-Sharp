@@ -52,13 +52,40 @@ namespace SimpleAlarmClock.Components
 
         }
 
-        private void ButtonEditAlarm_Click(object sender, RoutedEventArgs e)
+        private void EnabledCheckbox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AlarmObject.Enabled = false;
+            ((App)Application.Current).IOManager.SaveAlarmsToDisk();
+        }
+
+        private void EnabledCheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            AlarmObject.Enabled = true;
+            ((App)Application.Current).IOManager.SaveAlarmsToDisk();
+        }
+
+        private void AlarmInfoGrid_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2f3032"));
+        }
+
+        private void AlarmInfoGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
+        }
+
+        private void AlarmInfoGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var window = new ModifyAlarm(AlarmObject);
             window.Owner = ((App)Application.Current).MainWindow;
             window.ShowDialog();
-            
         }
+
+        //private void BorderAlarm_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //
+        //    this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2f3032"));
+        //}
 
     }
 }
