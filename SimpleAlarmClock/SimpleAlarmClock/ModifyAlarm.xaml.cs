@@ -226,6 +226,7 @@ namespace SimpleAlarmClock
 
         private void DeleteAlarmButton_Click(object sender, RoutedEventArgs e)
         {
+            
             ((App)Application.Current).AppAlarmList.Remove(this.AlarmObject);
             ((App)Application.Current).IOManager.SaveAlarmsToDisk();
             ((MainWindow)this.Owner).UpdateStackPanelAlarms();

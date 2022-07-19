@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 
 namespace SimpleAlarmClock
@@ -39,9 +40,18 @@ namespace SimpleAlarmClock
 
             AppSoundList = IOManager.LoadSoundsFromDisk(AppSoundsPath,SoundRepertoryExists);
             AppAlarmList = IOManager.LoadAlarmsFromDisk(AppAlarmsPath, AlarmFileExists);
+            ScheduleAlarms();
+            
 
-            
-            
         }
+        public void ScheduleAlarms()
+        {
+            foreach (Alarm alarm in AppAlarmList)
+            {
+                alarm.RemoveScheduledAlarmTask();
+                //alarm.ScheduleAlarm();
+            }
+        }
+
     }
 }

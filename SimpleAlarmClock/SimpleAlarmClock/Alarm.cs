@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 
 namespace SimpleAlarmClock
@@ -14,8 +15,8 @@ namespace SimpleAlarmClock
     {
 
         public bool Repeat { get; set; } //Is the alarm repeating
-        public int Hours { get; set; } //Alarm hour of the day
-        public int Minutes { get; set; } //Alarm minutes of the hour property
+        public int Hours { get; set; } //Hour of the alarm
+        public int Minutes { get; set; } //Minutes of the alarm
         public string HoursAndMinutes { get; set; } //UI uses this property to show the time of the alarm
         public bool PM { get; set; } //Defines if the Alarm is in the afternoon
         public bool Snooze { get; set; } //Defines if the alarm is allowed to snooze
@@ -24,6 +25,8 @@ namespace SimpleAlarmClock
         public string WhenIndicator { get; set; } //Is indicating to the user when is the alarm (Tommorow, Every weekday, Every Monday etc)
         public bool Enabled { get; set; } //Indicates if the Alarm is Enabled or not.
         public DateTime CreationDateTime { get; set; } //Mainly used as unique identificator
+        public DateTime AlarmDateTime { get; set; } //
+        public Task AlarmTask { get; set; } 
 
 
         public Alarm()
@@ -38,6 +41,9 @@ namespace SimpleAlarmClock
             WhenIndicator = SetAlarmWhenIndicator();
             Enabled = true;
             CreationDateTime = DateTime.Now;
+            AlarmDateTime = new DateTime(DateTime.Now.Year,DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
+            AlarmTask = null;
+
         }
 
 
@@ -56,6 +62,51 @@ namespace SimpleAlarmClock
             WhenIndicator = SetAlarmWhenIndicator();
             Enabled = true;
             CreationDateTime = DateTime.Now;
+            AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
+            AlarmTask = null;
+        }
+
+        public void RemoveScheduledAlarmTask()
+        {
+            if(AlarmTask != null)
+            {
+                
+                this.AlarmTask = null;
+            }
+        }
+
+        public async void ScheduleAlarm()
+        {
+            if (Enabled)
+            {
+                
+                if (PM)
+                {
+                    AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours + 12, Minutes, 0);
+                    if (AlarmDateTime > DateTime.Now)
+                    {
+                        await Task.Delay((int)AlarmDateTime.Subtract(DateTime.Now).TotalMilliseconds);
+                        await this.AlarmTask.Start((int)AlarmDateTime.Subtract(DateTime.Now).TotalMilliseconds)
+                        this.AlarmSound.Play();
+                    }
+
+                    
+                    
+                }
+                else
+                {
+                    AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
+                    if (AlarmDateTime > DateTime.Now)
+                    {
+                       await Task.Delay((int)AlarmDateTime.Subtract(DateTime.Now).TotalMilliseconds);
+                       //await this.AlarmTask;
+                        this.AlarmSound.Play();
+                    }
+                    
+                }
+
+                
+            }
 
         }
 
