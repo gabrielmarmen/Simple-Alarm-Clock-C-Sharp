@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
@@ -13,6 +15,7 @@ namespace SimpleAlarmClock
     /// </summary>
     public class Alarm
     {
+       
 
         public bool Repeat { get; set; } //Is the alarm repeating
         public int Hours { get; set; } //Hour of the alarm
@@ -25,8 +28,7 @@ namespace SimpleAlarmClock
         public string WhenIndicator { get; set; } //Is indicating to the user when is the alarm (Tommorow, Every weekday, Every Monday etc)
         public bool Enabled { get; set; } //Indicates if the Alarm is Enabled or not.
         public DateTime CreationDateTime { get; set; } //Mainly used as unique identificator
-        public DateTime AlarmDateTime { get; set; } //
-        public Task AlarmTask { get; set; } 
+        public DateTime AlarmDateTime { get; set; } //Dynamicaly set Alarm DateTime
 
 
         public Alarm()
@@ -42,7 +44,6 @@ namespace SimpleAlarmClock
             Enabled = true;
             CreationDateTime = DateTime.Now;
             AlarmDateTime = new DateTime(DateTime.Now.Year,DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
-            AlarmTask = null;
 
         }
 
@@ -63,52 +64,100 @@ namespace SimpleAlarmClock
             Enabled = true;
             CreationDateTime = DateTime.Now;
             AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
-            AlarmTask = null;
         }
 
-        public void RemoveScheduledAlarmTask()
+        
+
+        public void RingAlarm()
         {
-            if(AlarmTask != null)
+            this.AlarmSound.Play();
+        }
+
+        public void ScheduleAndRunAlarms()
+        {
+            Thread t = new Thread(RunAlarm); 
+            UpdateAlarmFields();
+            if (IsNeededToSchedule())
             {
-                
-                this.AlarmTask = null;
+                t.Start();
+            }
+
+        }
+
+        public void RunAlarm()
+        {
+            bool rang = false;
+            do
+            {
+                Thread.Sleep(4000);
+                if (DateTime.Now > AlarmDateTime)
+                {
+                    this.RingAlarm();
+
+                    rang = true;
+                }
+            } while (rang != true);
+            UpdateAlarmAfterRing();
+
+        }
+
+        public void UpdateAlarmFields()
+        {
+            SetAlarmDateTime();
+            this.WhenIndicator = SetAlarmWhenIndicator();
+        }
+        public void UpdateAlarmAfterRing()
+        {
+            if(this.Repeat == false)
+            {
+                this.Enabled= false;
+            }
+            UpdateAlarmFields();
+            ((App)Application.Current).IOManager.SaveAlarmsToDisk();
+        }
+        public void SetAlarmDateTime()
+        {
+            if(this.PM == true)
+            {
+                this.AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours + 12, Minutes, 0);
+            }
+            else
+            {
+                this.AlarmDateTime =  new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
             }
         }
-
-        public async void ScheduleAlarm()
+        public bool IsNeededToSchedule()
         {
             if (Enabled)
             {
-                
-                if (PM)
+                if(IsPassed())
                 {
-                    AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours + 12, Minutes, 0);
-                    if (AlarmDateTime > DateTime.Now)
-                    {
-                        await Task.Delay((int)AlarmDateTime.Subtract(DateTime.Now).TotalMilliseconds);
-                        await this.AlarmTask.Start((int)AlarmDateTime.Subtract(DateTime.Now).TotalMilliseconds)
-                        this.AlarmSound.Play();
-                    }
-
-                    
-                    
+                    return false;
                 }
                 else
                 {
-                    AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
-                    if (AlarmDateTime > DateTime.Now)
-                    {
-                       await Task.Delay((int)AlarmDateTime.Subtract(DateTime.Now).TotalMilliseconds);
-                       //await this.AlarmTask;
-                        this.AlarmSound.Play();
-                    }
-                    
+                    return true;
                 }
-
                 
             }
-
+            else
+            {
+                return false;
+            }
         }
+        public bool IsPassed()
+        {
+            if (AlarmDateTime < DateTime.Now)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 
         public string SetAlarmWhenIndicator()
         {
@@ -129,6 +178,8 @@ namespace SimpleAlarmClock
             //Calls the Method SaveAlarmsToDisk from IOManagement instance from the current app.
             //This Saves the newly updated list to the disk
             ((App)Application.Current).IOManager.SaveAlarmsToDisk();
+            //Schedules the alarm with a new thread if needed 
+            this.ScheduleAndRunAlarms();
             
         }
         public string GetHoursAndMinutes()

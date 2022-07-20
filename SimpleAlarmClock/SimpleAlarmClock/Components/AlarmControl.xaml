@@ -71,7 +71,7 @@
                       Margin="5,5,5,5"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Right"
-                      IsChecked="{Binding AlarmObject.Enabled, ElementName=AlarmInfoGrid}" Unchecked="EnabledCheckbox_Unchecked" Checked="EnabledCheckbox_Checked"
+                      IsChecked="{Binding AlarmObject.Enabled, Mode=TwoWay,ElementName=AlarmInfoGrid}" Unchecked="EnabledCheckbox_Unchecked" Checked="EnabledCheckbox_Checked"
                                       >
 
             </CheckBox>
