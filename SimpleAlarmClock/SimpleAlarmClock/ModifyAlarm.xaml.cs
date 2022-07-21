@@ -255,8 +255,9 @@ namespace SimpleAlarmClock
                     if (obj.CreationDateTime == AlarmObject.CreationDateTime)
                     {
                         obj.ModifyObject(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
-                        obj.Enabled= true;
-                        obj.ScheduleAndRunAlarms();
+                        obj.Enabled= true; //Sets the Alarm's Enabled value to true. When the property is enabled, it triggers the scheduling of the alarm. No need to schedule from here
+                        AlarmObject.ScheduleAndRunAlarms();
+
                     }
                 }
                 (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();

@@ -55,12 +55,17 @@ namespace SimpleAlarmClock.Components
         private void EnabledCheckbox_Unchecked(object sender, RoutedEventArgs e)
         {
             AlarmObject.Enabled = false;
+            if(AlarmObject != null)
+            {
+                AlarmObject.t.Abort();
+            }
             ((App)Application.Current).IOManager.SaveAlarmsToDisk();
         }
 
         private void EnabledCheckbox_Checked(object sender, RoutedEventArgs e)
         {
             AlarmObject.Enabled = true;
+            AlarmObject.ScheduleAndRunAlarms();
             ((App)Application.Current).IOManager.SaveAlarmsToDisk();
         }
 

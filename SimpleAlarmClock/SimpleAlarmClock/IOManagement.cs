@@ -30,10 +30,9 @@ namespace SimpleAlarmClock
             if (soundRepertoryExists == false)
             {
                 System.IO.Directory.CreateDirectory(soundsPath);
-                return AppSoundList;
+                GetDefaultSounds(soundsPath);
             }
-            else
-            {
+
                 string[] SoundMp3Files = System.IO.Directory.GetFiles(soundsPath, "*.mp3");
                 string[] SoundWavFiles = System.IO.Directory.GetFiles(soundsPath, "*.wav");
 
@@ -50,7 +49,7 @@ namespace SimpleAlarmClock
                     AppSoundList.Add(tempSound);
                 }
                 return AppSoundList;
-            }
+            
 
         }
         public void RefreshSoundsFromDisk()
@@ -99,14 +98,17 @@ namespace SimpleAlarmClock
 
             if (alarmFileExists == false)
             {
-                this.SaveAlarmsToDisk();
+                var json = JsonConvert.SerializeObject(((App)Application.Current).AppAlarmList);
+                File.WriteAllText(((App)Application.Current).AppAlarmsPath, json);
                 return AppAlarmList;
             }
             else
             {
                 string json = File.ReadAllText(alarmsPath);
-                AppAlarmList = JsonConvert.DeserializeObject<List<Alarm>>(json);
 
+               
+                        AppAlarmList = JsonConvert.DeserializeObject<List<Alarm>>(json);
+                
                 return AppAlarmList;
             }
 
@@ -117,7 +119,38 @@ namespace SimpleAlarmClock
         {
             var json = JsonConvert.SerializeObject(((App)Application.Current).AppAlarmList);
             File.WriteAllText(((App)Application.Current).AppAlarmsPath, json);
+            
         }
 
+        public void GetDefaultSounds(string soundsPath)
+        {
+            File.Copy(Path.Combine("C:\\Windows\\Media", "Alarm01.wav"), Path.Combine(soundsPath, "Chimes.wav"), true);
+            File.Copy(Path.Combine("C:\\Windows\\Media", "Alarm02.wav"), Path.Combine(soundsPath, "Xylophone.wav"), true);
+            File.Copy(Path.Combine("C:\\Windows\\Media", "Alarm03.wav"), Path.Combine(soundsPath, "Chords.wav"), true);
+            File.Copy(Path.Combine("C:\\Windows\\Media", "Alarm04.wav"), Path.Combine(soundsPath, "Tap.wav"), true);
+            File.Copy(Path.Combine("C:\\Windows\\Media", "Alarm05.wav"), Path.Combine(soundsPath, "Jingle.wav"), true);
+        }
+
+        protected virtual bool IsFileLocked(FileInfo file)
+        {
+            try
+            {
+                using (FileStream stream = file.Open(FileMode.Open, FileAccess.Read, FileShare.None))
+                {
+                    stream.Close();
+                }
+            }
+            catch (IOException)
+            {
+                //the file is unavailable because it is:
+                //still being written to
+                //or being processed by another thread
+                //or does not exist (has already been processed)
+                return true;
+            }
+
+            //file is not locked
+            return false;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -28,6 +29,9 @@ namespace SimpleAlarmClock
         public Sound AlarmSound { get; set; } //Where is the alarm's sound
         public DateTime CreationDateTime { get; set; } //Mainly used as unique identificator
         public DateTime AlarmDateTime { get; set; } //Dynamicaly set Alarm DateTime
+
+        [JsonIgnore]
+        public Thread t;
 
         private bool _enabled;
         public bool Enabled  //Indicates if the Alarm is Enabled or not.
@@ -97,6 +101,7 @@ namespace SimpleAlarmClock
             Enabled = true;
             CreationDateTime = DateTime.Now;
             AlarmDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Hours, Minutes, 0);
+            
         }
 
         
@@ -108,7 +113,11 @@ namespace SimpleAlarmClock
 
         public void ScheduleAndRunAlarms()
         {
-            Thread t = new Thread(RunAlarm); 
+            if(t!=null)
+            {
+                t.Abort();
+            }
+            t = new Thread(RunAlarm); 
             UpdateAlarmFields();
             if (IsNeededToSchedule())
             {
@@ -146,7 +155,6 @@ namespace SimpleAlarmClock
                 this.Enabled= false;
             }
             UpdateAlarmFields();
-            ((App)Application.Current).IOManager.SaveAlarmsToDisk();
         }
         public void SetAlarmDateTime()
         {
