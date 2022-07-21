@@ -10,7 +10,7 @@ This is a really simple app that served as an introduction to WPF with .NET Fram
 - NotifyIcon
 - Threads
 - Bindings
-- 
+
 **MVVM was not applied during this project.
 
 ## Current Features
