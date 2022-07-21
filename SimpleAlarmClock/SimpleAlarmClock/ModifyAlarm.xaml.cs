@@ -88,7 +88,7 @@ namespace SimpleAlarmClock
             }
             else
             {
-                StringToInt = 0;
+                StringToInt = 1;
             }
             LabelHours.Text = StringToInt.ToString();
         }
@@ -101,7 +101,7 @@ namespace SimpleAlarmClock
         {
             int StringToInt = Int32.Parse(LabelHours.Text);
 
-            if (StringToInt > 0)
+            if (StringToInt > 1)
             {
                 StringToInt--;
             }
@@ -255,7 +255,8 @@ namespace SimpleAlarmClock
                     if (obj.CreationDateTime == AlarmObject.CreationDateTime)
                     {
                         obj.ModifyObject(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
-                        
+                        obj.Enabled= true;
+                        obj.ScheduleAndRunAlarms();
                     }
                 }
                 (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();

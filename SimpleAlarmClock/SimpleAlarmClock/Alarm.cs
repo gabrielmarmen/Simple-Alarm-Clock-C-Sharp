@@ -13,7 +13,7 @@ namespace SimpleAlarmClock
     /// <summary>
     /// This is the Alarm Class. Contains a single alarm object's properties and it's methods.
     /// </summary>
-    public class Alarm
+    public class Alarm : INotifyPropertyChanged
     {
        
 
@@ -21,15 +21,46 @@ namespace SimpleAlarmClock
         public int Hours { get; set; } //Hour of the alarm
         public int Minutes { get; set; } //Minutes of the alarm
         public string HoursAndMinutes { get; set; } //UI uses this property to show the time of the alarm
+        public string AMPMString { get; set; } //UI uses this property to show AM or PM
         public bool PM { get; set; } //Defines if the Alarm is in the afternoon
         public bool Snooze { get; set; } //Defines if the alarm is allowed to snooze
         public string Label { get; set; } //Name of the Alarm
         public Sound AlarmSound { get; set; } //Where is the alarm's sound
-        public string WhenIndicator { get; set; } //Is indicating to the user when is the alarm (Tommorow, Every weekday, Every Monday etc)
-        public bool Enabled { get; set; } //Indicates if the Alarm is Enabled or not.
         public DateTime CreationDateTime { get; set; } //Mainly used as unique identificator
         public DateTime AlarmDateTime { get; set; } //Dynamicaly set Alarm DateTime
 
+        private bool _enabled;
+        public bool Enabled  //Indicates if the Alarm is Enabled or not.
+        {
+            get { return _enabled; }
+
+            set
+            {
+                _enabled = value;
+                OnPropertyRaised("Enabled");
+            }
+        }
+        private string _whenIndicator;
+        public string WhenIndicator  //Is indicating to the user when is the alarm (Tommorow, Every weekday, Every Monday etc)
+        {
+            get { return _whenIndicator; }
+
+            set
+            {
+                _whenIndicator = value;
+                OnPropertyRaised("WhenIndicator");
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyRaised(string propertyname)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
+        }
 
         public Alarm()
         {
@@ -38,6 +69,7 @@ namespace SimpleAlarmClock
             Minutes = 0;
             HoursAndMinutes = GetHoursAndMinutes();
             PM = false;
+            AMPMString = GetAMPMString();
             Label = "Alarm";
             AlarmSound = new Sound();
             WhenIndicator = SetAlarmWhenIndicator();
@@ -57,6 +89,7 @@ namespace SimpleAlarmClock
             Minutes = minutes;
             PM = pm;
             HoursAndMinutes = GetHoursAndMinutes();
+            AMPMString= GetAMPMString();
             Snooze = newBoolSnooze;
             Label = label;
             AlarmSound = alarmSound;
@@ -165,6 +198,10 @@ namespace SimpleAlarmClock
             {
                 return "Every Day";
             }
+            else if (DateTime.Now < this.AlarmDateTime)
+            {
+                return "Today";
+            }
             else
             {
                 return "Tommorow";
@@ -186,30 +223,25 @@ namespace SimpleAlarmClock
         {
             if(this.Minutes<10)
             {
-                if(PM == true)
-                {
-                    return this.Hours.ToString() + ":0" + this.Minutes.ToString() + " PM";
-                }
-                else
-                {
-                    return this.Hours.ToString() + ":0" + this.Minutes.ToString() + " AM";
-                }
-                
+                return this.Hours.ToString() + ":0" + this.Minutes.ToString();
             }
             else
             {
-                if (PM == true)
-                {
-                    return this.Hours.ToString() + ":" + this.Minutes.ToString() + " PM";
-                }
-                else
-                {
-                    return this.Hours.ToString() + ":" + this.Minutes.ToString() + " AM";
-                }
-                
+                return this.Hours.ToString() + ":" + this.Minutes.ToString();     
             }
 
 
+        }
+        public string GetAMPMString()
+        {
+            if(PM == true)
+            {
+                return " PM";
+            }
+            else
+            {
+                return " AM";
+            }
         }
 
         public void ModifyObject(bool? repeat, int hours, int minutes, bool pm, bool? snooze, string label, Sound alarmSound)
@@ -220,6 +252,7 @@ namespace SimpleAlarmClock
             this.Minutes = minutes;
             this.PM = pm;
             this.HoursAndMinutes = GetHoursAndMinutes();
+            this.AMPMString = GetAMPMString();
             this.Label = label;
             this.AlarmSound = alarmSound;
             this.WhenIndicator = SetAlarmWhenIndicator();

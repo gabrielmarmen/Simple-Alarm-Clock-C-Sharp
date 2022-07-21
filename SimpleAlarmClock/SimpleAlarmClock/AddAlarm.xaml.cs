@@ -57,7 +57,7 @@ namespace SimpleAlarmClock
             }
             else
             {
-                StringToInt = 0;
+                StringToInt = 1;
             }
             LabelHours.Text = StringToInt.ToString();
         }
@@ -70,7 +70,7 @@ namespace SimpleAlarmClock
         {
             int StringToInt = Int32.Parse(LabelHours.Text);
             
-            if (StringToInt > 0)
+            if (StringToInt > 1)
             {
                 StringToInt--;
             }

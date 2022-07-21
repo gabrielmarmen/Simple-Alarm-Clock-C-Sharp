@@ -28,12 +28,25 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{Binding AlarmObject.HoursAndMinutes, ElementName=AlarmInfoGrid}"
+            
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="0">
+                <TextBlock Text="{Binding AlarmObject.HoursAndMinutes, ElementName=AlarmInfoGrid}"
                        Grid.Row="0"
-                       VerticalAlignment="Top"
+                       VerticalAlignment="Bottom"
                        HorizontalAlignment="Left"
                        FontSize="35">
-            </TextBlock>
+                </TextBlock>
+                <TextBlock Text="{Binding AlarmObject.AMPMString, ElementName=AlarmInfoGrid}"
+                       Grid.Row="0"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Left"
+                       FontSize="30"
+                       Foreground="#97989b"
+                       FontWeight="Light">
+                </TextBlock>
+            </StackPanel>
+            
             <StackPanel Orientation="Horizontal"
                                             Grid.Row="1">
 
@@ -49,8 +62,8 @@
                            FontSize="10">
 
                 </TextBlock>
-                <TextBlock Text="{Binding AlarmObject.WhenIndicator, ElementName=AlarmInfoGrid}"
-                           Foreground="#666666"
+                <TextBlock Text="{Binding AlarmObject.WhenIndicator, Mode=TwoWay, ElementName=AlarmInfoGrid}"
+                           Foreground="#727375"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
                            FontSize="10">
