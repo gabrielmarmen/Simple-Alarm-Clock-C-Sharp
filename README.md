@@ -1,12 +1,31 @@
 # Simple Alarm Clock C#
 
-This is a really simple app that will serve as a way to practice basic C# since I have not programmed in any serious manner for a while.
+This is a really simple app that served as an introduction to WPF with .NET Framework 4.8 and as a way to get back into programming.
+
+## Concepts used in this project
+-WPF
+-Custom User Controls
+-Commands
+-Application Ressources / Dictionnaries
+-NotifyIcon
+-Threads
+-Bindings
+
+**MVVM was not applied during this project.
 
 ## Current Features
 
-No features for the moment
+   - Add your own sounds
+   - Add/Edit/Delete alarms
+   - Make repeating or one time alarms
+   - Run in system tray
+   - Listen to the sound selected before creating/editing an alarm
+
+
 
 ## Planned Features
+   - Run on system startup
+   - Implementation of Snoozing alarms
+   - Possibility of deleting your custom sounds
+   - Some UI improvement
 
--Custom Sounds for alarms <br />
--Run on startup <br />
