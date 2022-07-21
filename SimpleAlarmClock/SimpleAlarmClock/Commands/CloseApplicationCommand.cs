@@ -27,6 +27,13 @@ namespace SimpleAlarmClock.Commands
                     MessageBoxOptions.DefaultDesktopOnly) == MessageBoxResult.Yes)
             {
                 Application.Current.MainWindow.Close();
+                foreach (var item in ((App)Application.Current).AppAlarmList)
+                {
+                    if (item.t != null)
+                    {
+                        item.t.Abort();
+                    }
+                }
             }
             
         }
