@@ -3,14 +3,14 @@
 This is a really simple app that served as an introduction to WPF with .NET Framework 4.8 and as a way to get back into programming.
 
 ## Concepts used in this project
--WPF
--Custom User Controls
--Commands
--Application Ressources / Dictionnaries
--NotifyIcon
--Threads
--Bindings
-
+- WPF
+- Custom User Controls
+- Commands
+- Application Ressources / Dictionnaries
+- NotifyIcon
+- Threads
+- Bindings
+- 
 **MVVM was not applied during this project.
 
 ## Current Features
