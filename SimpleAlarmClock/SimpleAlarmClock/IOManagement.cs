@@ -22,7 +22,31 @@ namespace SimpleAlarmClock
 
         }
 
+        public Configs LoadConfigsFromDisk(string AppConfigsPath, bool ConfigsFileExists)
+        {
+            Configs AppConfigs = new Configs();
 
+            if (ConfigsFileExists == false)
+            {
+                var json = JsonConvert.SerializeObject(AppConfigs);
+                File.WriteAllText(AppConfigsPath, json);
+                return AppConfigs;
+            }
+            else
+            {
+                string json = File.ReadAllText(AppConfigsPath);
+
+
+                AppConfigs = JsonConvert.DeserializeObject<Configs>(json);
+
+                return AppConfigs;
+            }
+        }
+        public void SaveConfigsToDisk()
+        {
+            var json = JsonConvert.SerializeObject(((App)Application.Current).AppConfigs);
+            File.WriteAllText(((App)Application.Current).AppConfigsPath, json);
+        }
         public List<Sound> LoadSoundsFromDisk(string soundsPath, bool soundRepertoryExists)
         {
             List<Sound> AppSoundList = new List<Sound>();

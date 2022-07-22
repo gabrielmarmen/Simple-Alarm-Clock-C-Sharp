@@ -59,9 +59,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WpfExtendedControls, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WpfExtendedControls.1.0.4\lib\net48\WpfExtendedControls.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -74,12 +71,20 @@
     <Compile Include="Components\AlarmControl.xaml.cs">
       <DependentUpon>AlarmControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Configs.cs" />
+    <Compile Include="ExitDialog.xaml.cs">
+      <DependentUpon>ExitDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IOManagement.cs" />
     <Compile Include="ModifyAlarm.xaml.cs">
       <DependentUpon>ModifyAlarm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sound.cs" />
     <Page Include="Components\AlarmControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExitDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
