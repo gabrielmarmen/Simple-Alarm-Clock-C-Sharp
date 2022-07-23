@@ -20,17 +20,39 @@ namespace SimpleAlarmClock.Commands
 
         public void Execute(object parameter)
         {
-            //ExitDialog window = new ExitDialog();
-            //window.ShowDialog();
+            
+            if (!((App)Application.Current).AppConfigs.StopShowingExitNotification)
+            {
+                ExitDialog window = new ExitDialog();
+                bool value = window.ShowDialog() ?? false;
+                bool StopShowing = window.StopShowing;
+                if (value)
+                {
+                    if (StopShowing)
+                    {
+                        ((App)Application.Current).AppConfigs.StopShowingExitNotification = true;
+                        ((App)Application.Current).IOManager.SaveConfigsToDisk();
+                    }
+                    ((App)Application.Current).MainWindow.Close();
+                    foreach (var item in ((App)Application.Current).AppAlarmList)
+                    {
+                        if (item.t != null)
+                        {
+                            item.t.Abort();
+                        }
+                    }
+                    
+                }
+                if (StopShowing)
+                {
+                    ((App)Application.Current).AppConfigs.StopShowingExitNotification = true;
+                    ((App)Application.Current).IOManager.SaveConfigsToDisk();
+                }
 
-            if (MessageBox.Show("Are you sure you want to quit SimpleAlarmClock ? \r\nIf you quit, your alarms won't be ringing anymore.\r\n\r\nIf you want it to run in the background, click the hide button in the main window.",
-                    "Closing the Application",
-                    MessageBoxButton.YesNo, 
-                    MessageBoxImage.Warning,
-                    MessageBoxResult.None,
-                    MessageBoxOptions.DefaultDesktopOnly) == MessageBoxResult.Yes)
-            { 
-                Application.Current.MainWindow.Close();
+            }
+            else
+            {
+                ((App)Application.Current).MainWindow.Close();
                 foreach (var item in ((App)Application.Current).AppAlarmList)
                 {
                     if (item.t != null)
@@ -39,7 +61,20 @@ namespace SimpleAlarmClock.Commands
                     }
                 }
             }
-            
-        }
+
+        
+
+
+        //if (MessageBox.Show("Are you sure you want to quit SimpleAlarmClock ? \r\nIf you quit, your alarms won't be ringing anymore.\r\n\r\nIf you want it to run in the background, click the hide button in the main window.",
+        //        "Closing the Application",
+        //        MessageBoxButton.YesNo, 
+        //        MessageBoxImage.Warning,
+        //        MessageBoxResult.None,
+        //        MessageBoxOptions.DefaultDesktopOnly) == MessageBoxResult.Yes)
+        //{ 
+
+
+
+    }
     }
 }

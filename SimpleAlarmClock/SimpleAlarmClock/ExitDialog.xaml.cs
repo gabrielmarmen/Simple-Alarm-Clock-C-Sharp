@@ -19,9 +19,39 @@ namespace SimpleAlarmClock
     /// </summary>
     public partial class ExitDialog : Window
     {
+        public bool StopShowing { get; set; }  
         public ExitDialog()
         {
             InitializeComponent();
+            Owner = ((App)Application.Current).MainWindow;
+        }
+
+        private void YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxStopShowingExitNotification.IsChecked == true)
+            {
+                StopShowing = true; 
+                DialogResult = true;
+            }
+            else
+            {
+                StopShowing = false;
+                DialogResult = true;
+            }
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxStopShowingExitNotification.IsChecked == true)
+            {
+                StopShowing = true;
+                DialogResult = false;
+            }
+            else
+            {
+                StopShowing = false;
+                DialogResult = false;
+            }
         }
     }
 }
