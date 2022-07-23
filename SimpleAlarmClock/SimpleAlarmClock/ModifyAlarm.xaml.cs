@@ -248,26 +248,27 @@ namespace SimpleAlarmClock
 
 
 
-            if (TextBoxLabel.Text != "")
+            
+            foreach (Alarm obj in ((App)Application.Current).AppAlarmList)
             {
-                foreach (Alarm obj in ((App)Application.Current).AppAlarmList)
+                if (obj.CreationDateTime == AlarmObject.CreationDateTime)
                 {
-                    if (obj.CreationDateTime == AlarmObject.CreationDateTime)
+                    if (TextBoxLabel.Text == "")
                     {
-                        obj.ModifyObject(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
-                        obj.Enabled= true; //Sets the Alarm's Enabled value to true. When the property is enabled, it triggers the scheduling of the alarm. No need to schedule from here
-                        AlarmObject.ScheduleAndRunAlarms();
-
+                        TextBoxLabel.Text = "Alarm";
                     }
+                    obj.ModifyObject(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
+                    obj.Enabled= true; //Sets the Alarm's Enabled value to true. When the property is enabled, it triggers the scheduling of the alarm. No need to schedule from here
+                    AlarmObject.ScheduleAndRunAlarms();
+
                 }
-                (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();
-                ((App)Application.Current).IOManager.SaveAlarmsToDisk();
-                this.Close();
             }
-            else
-            {
-                MessageBox.Show("Please enter a Value in the Label field.", "Missing Label", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            
+            (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();
+            ((App)Application.Current).IOManager.SaveAlarmsToDisk();
+            this.Close();
+            
+
 
         }
     }
