@@ -61,20 +61,6 @@ namespace SimpleAlarmClock.Commands
                     }
                 }
             }
-
-        
-
-
-        //if (MessageBox.Show("Are you sure you want to quit SimpleAlarmClock ? \r\nIf you quit, your alarms won't be ringing anymore.\r\n\r\nIf you want it to run in the background, click the hide button in the main window.",
-        //        "Closing the Application",
-        //        MessageBoxButton.YesNo, 
-        //        MessageBoxImage.Warning,
-        //        MessageBoxResult.None,
-        //        MessageBoxOptions.DefaultDesktopOnly) == MessageBoxResult.Yes)
-        //{ 
-
-
-
-    }
+        }
     }
 }
