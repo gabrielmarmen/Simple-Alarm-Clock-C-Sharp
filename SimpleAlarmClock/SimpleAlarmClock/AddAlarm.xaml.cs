@@ -186,18 +186,20 @@ namespace SimpleAlarmClock
             }
 
 
-           
-            if(TextBoxLabel.Text != "")
+
+            if (TextBoxLabel.Text == "")
             {
-                Alarm newAlarm = new Alarm(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
-                newAlarm.AddAlarmToList(newAlarm);
-                (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();
-                this.Close();
+                TextBoxLabel.Text = "Alarm";
             }
-            else
-            {
-                MessageBox.Show("Please enter a Value in the Label field.", "Missing Label", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            Alarm newAlarm = new Alarm(CheckBoxRepeat.IsChecked, Int32.Parse(LabelHours.Text), Int32.Parse(LabelMinutes.Text), IsPM, CheckBoxSnooze.IsChecked, TextBoxLabel.Text, ((App)Application.Current).AppSoundList.Find(o => o.Name == ComboBoxSound.SelectedValue.ToString()));
+            newAlarm.AddAlarmToList(newAlarm);
+            (Application.Current.MainWindow as MainWindow).UpdateStackPanelAlarms();
+            this.Close();
+            
+            //else
+            //{
+             //   MessageBox.Show("Please enter a Value in the Label field.", "Missing Label", MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
             
         }
 
