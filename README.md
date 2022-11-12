@@ -24,6 +24,7 @@ This is a really simple app that served as an introduction to WPF with .NET Fram
 
 
 ## Planned Features
+   ** 12-11-2022 - No updates are planned in the near future. I am focused on building up my Swift skills at the moment **
    - Run on system startup
    - Implementation of Snoozing alarms
    - Possibility of deleting your custom sounds
